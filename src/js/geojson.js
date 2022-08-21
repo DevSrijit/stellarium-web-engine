@@ -38,11 +38,11 @@ function setData(obj, data) {
   for (const feature of data.features) {
     const geo = feature.geometry;
     if (geo.type !== 'Polygon') {
-      console.error('Only support polygon geometry');
+      
       continue;
     }
     if (geo.coordinates.length != 1) {
-      console.error('Only support single ring polygons');
+      
       continue;
     }
     const coordinates = geo.coordinates[0];

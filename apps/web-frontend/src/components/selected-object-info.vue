@@ -191,7 +191,7 @@ export default {
       swh.sweObj2SkySource(this.$stel.core.selection).then(res => {
         this.$store.commit('setSelectedObject', res)
       }, err => {
-        console.log("Couldn't find info for object " + s + ':' + err)
+        
         this.$store.commit('setSelectedObject', 0)
       })
     },

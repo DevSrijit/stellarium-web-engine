@@ -369,6 +369,6 @@ require('../../build/stellarium-web-engine.js')({
     testCreate(stel);
     testPositions(stel);
     testGeojson(stel);
-    console.log('All tests passed');
+    
   }
 });

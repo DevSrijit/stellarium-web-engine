@@ -142,7 +142,7 @@ export default {
           const pos = { lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng), alt: this.$route.query.elev ? Number(this.$route.query.elev) : 0, accuracy: 1 }
           swh.geoCodePosition(pos, that).then((loc) => {
             that.$store.commit('setCurrentLocation', loc)
-          }, (error) => { console.log(error) })
+          }, (error) => {  })
         }
 
         this.$stel.core.observer.yaw = this.$route.query.az ? Number(this.$route.query.az) * Math.PI / 180 : 0
@@ -154,7 +154,7 @@ export default {
 
       if (this.$route.path.startsWith('/skysource/')) {
         const name = decodeURIComponent(this.$route.path.substring(11))
-        console.log('Will select object: ' + name)
+        
         return swh.lookupSkySourceByName(name).then(ss => {
           if (!ss) {
             return
@@ -165,12 +165,12 @@ export default {
             this.$selectionLayer.add(obj)
           }
           if (!obj) {
-            console.warning("Can't find object in SWE: " + ss.names[0])
+            
           }
           swh.setSweObjAsSelection(obj)
         }, err => {
-          console.log(err)
-          console.log("Couldn't find skysource for name: " + name)
+          
+          
         })
       }
     }
@@ -231,7 +231,7 @@ export default {
           // Start auto location detection (even if we don't use it)
           swh.getGeolocation().then(p => swh.geoCodePosition(p, that)).then((loc) => {
             that.$store.commit('setAutoDetectedLocation', loc)
-          }, (error) => { console.log(error) })
+          }, (error) => {  })
 
           that.$stel.setFont('regular', process.env.BASE_URL + 'fonts/Roboto-Regular.ttf', 1.38)
           that.$stel.setFont('bold', process.env.BASE_URL + 'fonts/Roboto-Bold.ttf', 1.38)

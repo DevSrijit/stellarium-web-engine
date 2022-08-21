@@ -47,7 +47,7 @@ var plugins = []
 const ctx = require.context('./plugins/', true, /\.\/\w+\/index\.js$/)
 for (const i in ctx.keys()) {
   const key = ctx.keys()[i]
-  console.log('Loading plugin: ' + key)
+  
   const mod = ctx(key)
   plugins.push(mod.default)
 }
