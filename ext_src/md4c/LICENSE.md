@@ -1,4 +1,3 @@
-
 # The MIT License (MIT)
 
 Copyright © 2016-2020 Martin Mitáš
