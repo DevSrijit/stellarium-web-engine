@@ -37,8 +37,8 @@ Signed,
     * `<login>`: your GitHub login
 
 3. A Stellarium Web Team member will verify and accept your Pull Request. You can
-make other pull requests, but we won't be able to merge them until your CLA
-signature is merged.
+   make other pull requests, but we won't be able to merge them until your CLA
+   signature is merged.
 
 ## If you work for a company
 
@@ -80,18 +80,18 @@ List of contributors:
     * `<login>`: your GitHub login
 
 3. A Stellarium Web Team member will verify and accept your Pull Request. You can
-make other pull requests, but we won't be able to merge them until your CLA
-signature is merged.
+   make other pull requests, but we won't be able to merge them until your CLA
+   signature is merged.
 
 ## If you don't have a github account
 
 If you cannot submit your signature using a pull request, you may alternatively
 print the CLA, complete it, sign it, scan it and send it by email to
-contact@noctua-software.com.  In that case someone from the Stellarium Web team will
+contact@noctua-software.com. In that case someone from the Stellarium Web team will
 make the pull request on your behalf.
 
-* Printable Stellarium Web CCLA v1.0 https://raw.githubusercontent.com/Stellarium/stellarium-web-engine/master/doc/cla/ccla-1.0.pdf
-* Printable Stellarium Web ICLA v1.0 https://raw.githubusercontent.com/Stellarium/stellarium-web-engine/master/doc/cla/icla-1.0.pdf
+- Printable Stellarium Web CCLA v1.0 https://raw.githubusercontent.com/Stellarium/stellarium-web-engine/master/doc/cla/ccla-1.0.pdf
+- Printable Stellarium Web ICLA v1.0 https://raw.githubusercontent.com/Stellarium/stellarium-web-engine/master/doc/cla/icla-1.0.pdf
 
 # FAQ
 
@@ -99,13 +99,13 @@ make the pull request on your behalf.
 
 The goal of having a Contributor License Agreement for Stellarium Web is to:
 
-* clearly define the terms under which intellectual property (patches, pull
+- clearly define the terms under which intellectual property (patches, pull
   requests, etc.) have been contributed to the Stellarium Web project
 
-* protect the Stellarium Web project and its users in case of legal dispute about the
+- protect the Stellarium Web project and its users in case of legal dispute about the
   origin or ownership of any part of the code
 
-* protect the Stellarium Web project and its users from bad actors who would contribute
+- protect the Stellarium Web project and its users from bad actors who would contribute
   and then try to withdraw their contributions or cause legal trouble, e.g. in
   the form of patent lawsuits
 
@@ -129,7 +129,7 @@ distribute your contributions without further restrictions.
 
 Each individual contributor (making contributions only on their own behalf) is
 required to sign and submit the Individual Contributor License Agreement
-(ICLA) of Stellarium Web.  The agreement is executed by adding your name and
+(ICLA) of Stellarium Web. The agreement is executed by adding your name and
 signature to the list of validated contributors inside the project source code.
 
 If someone is unable to sign the CLA, their contributions will have to be
@@ -151,4 +151,3 @@ be very careful.
 The ICLA (section 4) is a legal declaration where the contributor states they
 have the right to make the contributions. These contributors should only
 submit contributions they are really entitled to license.
-

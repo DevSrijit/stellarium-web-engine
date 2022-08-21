@@ -1,14 +1,11 @@
-Stellarium Web Engine
-=====================
+# Stellarium Web Engine
 
-About
------
+## About
 
 Stellarium Web Engine is a JavaScript planetarium renderer using
 WebGL that can be embedded into a website.
 
-Features
---------
+## Features
 
 - Atmosphere simulation.
 - Gaia stars database access (more than 1 billion stars).
@@ -18,9 +15,7 @@ Features
 - Support for adding layers and shapes in the sky view.
 - Landscapes.
 
-
-Build the javascript version
-----------------------------
+## Build the javascript version
 
 You need to make sure you have both emscripten and sconstruct installed.
 
@@ -33,9 +28,7 @@ You need to make sure you have both emscripten and sconstruct installed.
 
     # Now see apps/simple-html/ to try the library in a browser.
 
-
-Contributing
-------------
+## Contributing
 
 In order for your contribution to Stellarium Web Engine to be accepted, you have to sign the
 [Stellarium Web Contributor License Agreement (CLA)](doc/cla/sign-cla.md).

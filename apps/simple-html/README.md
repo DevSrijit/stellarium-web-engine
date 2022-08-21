@@ -1,5 +1,4 @@
-Simple static test pages
-------------------------
+## Simple static test pages
 
 Build the main js library at the root of this repo:
 

@@ -7,7 +7,7 @@
  * repository.
  */
 
-Module.afterInit(function() {
+Module.afterInit(function () {
   if (!Module.canvas) return;
 
   // XXX: remove this I guess.
@@ -16,8 +16,7 @@ Module.afterInit(function() {
   var mousePos;
 
   // Function called at each frame
-  var render = function(timestamp) {
-
+  var render = function (timestamp) {
     if (mouseDown)
       Module._core_on_mouse(0, 1, mousePos.x, mousePos.y, mouseButtons);
 
@@ -30,10 +29,10 @@ Module.afterInit(function() {
     // Get the size of the canvas in CSS pixels.
     var rect = canvas.getBoundingClientRect();
 
-    var displayWidth  = rect.width;
+    var displayWidth = rect.width;
     var displayHeight = rect.height;
-    var sizeChanged = (canvas.width  !== displayWidth) ||
-                      (canvas.height !== displayHeight);
+    var sizeChanged =
+      canvas.width !== displayWidth || canvas.height !== displayHeight;
 
     if (sizeChanged) {
       canvas.width = displayWidth * dpr;
@@ -45,31 +44,31 @@ Module.afterInit(function() {
     Module._core_update();
     Module._core_render(displayWidth, displayHeight, dpr);
 
-    window.requestAnimationFrame(render)
-  }
+    window.requestAnimationFrame(render);
+  };
 
-  var fixPageXY = function(e) {
-    if (e.pageX == null && e.clientX != null ) {
-      var html = document.documentElement
-      var body = document.body
-      e.pageX = e.clientX + (html.scrollLeft || body && body.scrollLeft || 0)
-      e.pageX -= html.clientLeft || 0
-      e.pageY = e.clientY + (html.scrollTop || body && body.scrollTop || 0)
-      e.pageY -= html.clientTop || 0
+  var fixPageXY = function (e) {
+    if (e.pageX == null && e.clientX != null) {
+      var html = document.documentElement;
+      var body = document.body;
+      e.pageX = e.clientX + (html.scrollLeft || (body && body.scrollLeft) || 0);
+      e.pageX -= html.clientLeft || 0;
+      e.pageY = e.clientY + (html.scrollTop || (body && body.scrollTop) || 0);
+      e.pageY -= html.clientTop || 0;
     }
   };
 
-  var setupMouse = function() {
+  var setupMouse = function () {
     var canvas = Module.canvas;
     function getMousePos(evt) {
       var rect = canvas.getBoundingClientRect();
       return {
         x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
+        y: evt.clientY - rect.top,
       };
     }
 
-    canvas.addEventListener('mousedown', function(e) {
+    canvas.addEventListener("mousedown", function (e) {
       var that = this;
       e = e || event;
       fixPageXY(e);
@@ -77,44 +76,52 @@ Module.afterInit(function() {
       mousePos = getMousePos(e);
       mouseButtons = e.buttons;
 
-      document.onmouseup = function(e) {
+      document.onmouseup = function (e) {
         e = e || event;
         fixPageXY(e);
         mouseDown = false;
         mousePos = getMousePos(e);
         Module._core_on_mouse(0, 0, mousePos.x, mousePos.y, mouseButtons);
       };
-      document.onmouseleave = function(e) {
+      document.onmouseleave = function (e) {
         mouseDown = false;
       };
 
-      document.onmousemove = function(e) {
+      document.onmousemove = function (e) {
         e = e || event;
         fixPageXY(e);
         mousePos = getMousePos(e);
-      }
+      };
     });
 
-    canvas.addEventListener('touchstart', function(e) {
-      var rect = canvas.getBoundingClientRect();
-      for (var i = 0; i < e.changedTouches.length; i++) {
-        var id = e.changedTouches[i].identifier;
-        var relX = e.changedTouches[i].pageX - rect.left;
-        var relY = e.changedTouches[i].pageY - rect.top;
-        Module._core_on_mouse(id, 1, relX, relY, 1);
-      }
-    }, {passive: true});
-    canvas.addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      var rect = canvas.getBoundingClientRect();
-      for (var i = 0; i < e.changedTouches.length; i++) {
-        var id = e.changedTouches[i].identifier;
-        var relX = e.changedTouches[i].pageX - rect.left;
-        var relY = e.changedTouches[i].pageY - rect.top;
-        Module._core_on_mouse(id, -1, relX, relY, 1);
-      }
-    }, {passive: false});
-    canvas.addEventListener('touchend', function(e) {
+    canvas.addEventListener(
+      "touchstart",
+      function (e) {
+        var rect = canvas.getBoundingClientRect();
+        for (var i = 0; i < e.changedTouches.length; i++) {
+          var id = e.changedTouches[i].identifier;
+          var relX = e.changedTouches[i].pageX - rect.left;
+          var relY = e.changedTouches[i].pageY - rect.top;
+          Module._core_on_mouse(id, 1, relX, relY, 1);
+        }
+      },
+      { passive: true }
+    );
+    canvas.addEventListener(
+      "touchmove",
+      function (e) {
+        e.preventDefault();
+        var rect = canvas.getBoundingClientRect();
+        for (var i = 0; i < e.changedTouches.length; i++) {
+          var id = e.changedTouches[i].identifier;
+          var relX = e.changedTouches[i].pageX - rect.left;
+          var relY = e.changedTouches[i].pageY - rect.top;
+          Module._core_on_mouse(id, -1, relX, relY, 1);
+        }
+      },
+      { passive: false }
+    );
+    canvas.addEventListener("touchend", function (e) {
       var rect = canvas.getBoundingClientRect();
       for (var i = 0; i < e.changedTouches.length; i++) {
         var id = e.changedTouches[i].identifier;
@@ -127,19 +134,19 @@ Module.afterInit(function() {
     function getMouseWheelDelta(event) {
       var delta = 0;
       switch (event.type) {
-        case 'DOMMouseScroll':
+        case "DOMMouseScroll":
           delta = -event.detail;
           break;
-        case 'mousewheel':
+        case "mousewheel":
           delta = event.wheelDelta / 120;
           break;
         default:
-          throw 'unrecognized mouse wheel event: ' + event.type;
+          throw "unrecognized mouse wheel event: " + event.type;
       }
       return delta;
     }
 
-    var onWheelEvent = function(e) {
+    var onWheelEvent = function (e) {
       e.preventDefault();
       fixPageXY(e);
       var pos = getMousePos(e);
@@ -148,18 +155,17 @@ Module.afterInit(function() {
       Module._core_on_zoom(Math.pow(zoom_factor, delta), pos.x, pos.y);
       return false;
     };
-    canvas.addEventListener('mousewheel', onWheelEvent, {passive: false});
-    canvas.addEventListener('DOMMouseScroll', onWheelEvent, {passive: false});
+    canvas.addEventListener("mousewheel", onWheelEvent, { passive: false });
+    canvas.addEventListener("DOMMouseScroll", onWheelEvent, { passive: false });
 
-    canvas.oncontextmenu = function(e) {
+    canvas.oncontextmenu = function (e) {
       e.preventDefault();
       e.stopPropagation();
-    }
-
+    };
   };
 
   setupMouse();
 
   // Kickoff rendering at max FPS, normally 60 FPS on a browser.
-  window.requestAnimationFrame(render)
-})
+  window.requestAnimationFrame(render);
+});
