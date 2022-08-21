@@ -323,7 +323,7 @@ const swh = {
     }
 
     const printErr = function (n) {
-      console.log("Couldn't find online skysource data for name: " + n)
+      
 
       const ss = obj.jsonData
       if (!ss.model_data) {
@@ -418,7 +418,7 @@ const swh = {
   },
 
   getGeolocation: function () {
-    console.log('Getting geolocalization')
+    
 
     // First get geoIP location, to use as fallback
     return Vue.jsonp('https://freegeoip.stellarium.org/json/')
@@ -428,10 +428,10 @@ const swh = {
           lng: location.longitude,
           accuracy: 20000
         }
-        console.log('GeoIP localization: ' + JSON.stringify(pos))
+        
         return pos
       }, err => {
-        console.log(err)
+        
       }).then(geoipPos => {
         if (navigator.geolocation) {
           return new Promise((resolve, reject) => {
@@ -443,7 +443,7 @@ const swh = {
               }
               resolve(pos)
             }, function () {
-              console.log('Could not get location from browser, use fallback from GeoIP')
+              
               // No HTML5 Geolocalization support, return geoip fallback values
               if (geoipPos) {
                 resolve(geoipPos)
@@ -463,7 +463,7 @@ const swh = {
   },
 
   geoCodePosition: function (pos, ctx) {
-    console.log('Geocoding position... ')
+    
     const ll = ctx.$t('Lat {0}° Lon {1}°', [pos.lat.toFixed(3), pos.lng.toFixed(3)])
     var loc = {
       short_name: pos.accuracy > 500 ? ctx.$t('Near {0}', [ll]) : ll,
@@ -487,7 +487,7 @@ const swh = {
           return loc
         })
       } else {
-        console.log('Geocoder failed due to: ' + response.statusText)
+        
         return loc
       }
     })
